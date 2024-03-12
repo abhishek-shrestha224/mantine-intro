@@ -1,15 +1,31 @@
-import { Button, MantineProvider, Paper, Text } from "@mantine/core";
+import {
+  Loader,
+  MantineProvider,
+  Paper,
+  Text,
+  createTheme,
+} from "@mantine/core";
 import React from "react";
+import Demo from "./Components/Demo";
 
-const mtTheme = {};
+const myTheme = createTheme({
+  fontFamily: "Open Sans",
+  forceColorScheme: "dark",
+});
 export default function App() {
   return (
-    <MantineProvider>
+    <MantineProvider
+      theme={myTheme}
+      // forceColorScheme="dark"
+      // cssVariablesSelector=".myCssSelector"
+    >
       <Paper>
         <Text>Hello</Text>
         <Text>World</Text>
-        <Button>Click Me</Button>
       </Paper>
+      <Loader />
+
+      <Demo />
     </MantineProvider>
   );
 }
